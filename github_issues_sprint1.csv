@@ -1,0 +1,508 @@
+Title,Body,Labels,Assignees,Milestone
+"@CEO — Define Sprint 1 goals (Aug 18–31), top 5 P1 tickets, risks","**Agent:** @CEO
+**Due:** 2025-08-18
+**Prompt:** Define Sprint 1 goals (Aug 18–31), top 5 P1 tickets, risks. Output TL;DR.
+**Expected deliverable:** 1-page TL;DR with goals, P1 list, risks.
+**Files/Areas:** docs/ceo/okrs_q3.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Mgmt, Sprint:1, P2, Agent:CEO",,
+@Developer — Code-ready plan for P1: wire /search and /vendors/[id] to DB,"**Agent:** @Developer
+**Due:** 2025-08-18
+**Prompt:** Code-ready plan for P1: wire /search and /vendors/[id] to DB. Provide full file contents + run commands.
+**Expected deliverable:** File diffs or full files for app/search/page.tsx and app/vendors/[id]/page.tsx.
+**Files/Areas:** Next.js pages; Prisma reads
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@QA — Create Playwright setup + tests for Search & Vendor pages,"**Agent:** @QA
+**Due:** 2025-08-18
+**Prompt:** Create Playwright setup + tests for Search & Vendor pages. Provide test files and commands.
+**Expected deliverable:** Playwright config + tests/e2e/*.spec.ts + run steps.
+**Files/Areas:** tests/e2e/*, devDependencies
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Design — Wireframe specs for Search → Listing → Booking (above-the-fold) + microcopy,"**Agent:** @Design
+**Due:** 2025-08-18
+**Prompt:** Wireframe specs for Search → Listing → Booking (above-the-fold) + microcopy.
+**Expected deliverable:** Spec doc with sections & copy.
+**Files/Areas:** docs/design/search_listing_booking.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:UI, Sprint:1, P2, Agent:Design",,
+@Data — Initial event schema (10 events) for Search/Listing with JSON examples,"**Agent:** @Data
+**Due:** 2025-08-18
+**Prompt:** Initial event schema (10 events) for Search/Listing with JSON examples.
+**Expected deliverable:** Event table + JSON payload examples.
+**Files/Areas:** docs/data/events_v1.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Data, Sprint:1, P2, Agent:Data",,
+@Research — Competitive sweep (12 apps) + gaps summary,"**Agent:** @Research
+**Due:** 2025-08-18
+**Prompt:** Competitive sweep (12 apps) + gaps summary.
+**Expected deliverable:** scorecard.csv + 1-pager summary.
+**Files/Areas:** research/scorecard.csv, research/summary.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Research, Sprint:1, P2, Agent:Research",,
+@Developer — Implement POST /api/bookings with zod validation and Prisma create,"**Agent:** @Developer
+**Due:** 2025-08-19
+**Prompt:** Implement POST /api/bookings with zod validation and Prisma create.
+**Expected deliverable:** route file with response {id, advanceAmount, status:'PENDING'}.
+**Files/Areas:** app/api/bookings/route.ts
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@QA — API tests for bookings happy/bad payloads,"**Agent:** @QA
+**Due:** 2025-08-19
+**Prompt:** API tests for bookings happy/bad payloads.
+**Expected deliverable:** tests/api/bookings.spec.ts + commands.
+**Files/Areas:** tests/api/bookings.spec.ts
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Data — Add booking events (start/success/fail) to schema,"**Agent:** @Data
+**Due:** 2025-08-19
+**Prompt:** Add booking events (start/success/fail) to schema.
+**Expected deliverable:** Updated events doc.
+**Files/Areas:** docs/data/events_v1.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Data, Sprint:1, P2, Agent:Data",,
+@Ops — Refund/cancellation SOP (3 tiers) + canned replies,"**Agent:** @Ops
+**Due:** 2025-08-19
+**Prompt:** Refund/cancellation SOP (3 tiers) + canned replies.
+**Expected deliverable:** SOP + macros.
+**Files/Areas:** docs/ops/refunds.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Ops, Sprint:1, P2, Agent:Ops",,
+@Payments — Design advance deposit escrow (Razorpay test),"**Agent:** @Payments
+**Due:** 2025-08-20
+**Prompt:** Design advance deposit escrow (Razorpay test). Sequence diagrams, API/webhooks, refund matrix, payout schedule.
+**Expected deliverable:** Payments spec.
+**Files/Areas:** docs/payments/deposit_escrow.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Payments, Sprint:1, P1, Agent:Payments",,
+@Developer — Scaffold /api/payments/create-order and /api/payments/webhook (stubs with TODOs),"**Agent:** @Developer
+**Due:** 2025-08-20
+**Prompt:** Scaffold /api/payments/create-order and /api/payments/webhook (stubs with TODOs).
+**Expected deliverable:** Two route files.
+**Files/Areas:** app/api/payments/*
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+"@CRM — Lifecycle message templates: inquiry ack, T+20m deposit nudge, T-2d reminder, post-service review ask","**Agent:** @CRM
+**Due:** 2025-08-20
+**Prompt:** Lifecycle message templates: inquiry ack, T+20m deposit nudge, T-2d reminder, post-service review ask.
+**Expected deliverable:** Templates with variables.
+**Files/Areas:** docs/crm/messages.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:CRM, Sprint:1, P2, Agent:CRM",,
+@QA — Payments test checklist (happy/sad paths),"**Agent:** @QA
+**Due:** 2025-08-20
+**Prompt:** Payments test checklist (happy/sad paths).
+**Expected deliverable:** Checklist doc.
+**Files/Areas:** docs/qa/payments_plan.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Developer — Add GET/POST /api/reviews and render on Vendor page; include moderation fields,"**Agent:** @Developer
+**Due:** 2025-08-21
+**Prompt:** Add GET/POST /api/reviews and render on Vendor page; include moderation fields.
+**Expected deliverable:** Routes + Vendor page diff.
+**Files/Areas:** app/api/reviews/route.ts; vendors page
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@Trust — Moderation policy for photos/comments/reviews; dispute ladder; evidence checklist,"**Agent:** @Trust
+**Due:** 2025-08-21
+**Prompt:** Moderation policy for photos/comments/reviews; dispute ladder; evidence checklist.
+**Expected deliverable:** Policy doc.
+**Files/Areas:** docs/trust/moderation.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Trust, Sprint:1, P2, Agent:Trust",,
+@QA — Playwright tests for posting a review (mock happy path),"**Agent:** @QA
+**Due:** 2025-08-21
+**Prompt:** Playwright tests for posting a review (mock happy path).
+**Expected deliverable:** e2e spec file.
+**Files/Areas:** tests/e2e/reviews.spec.ts
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Developer — Wire Offers: GET/POST /api/offers + UI badges for valid/expired,"**Agent:** @Developer
+**Due:** 2025-08-22
+**Prompt:** Wire Offers: GET/POST /api/offers + UI badges for valid/expired.
+**Expected deliverable:** Routes + page changes.
+**Files/Areas:** app/api/offers/route.ts; app/offers/page.tsx
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@Marketing — Homepage copy for City-1; 2 paid test campaigns with budgets & success thresholds,"**Agent:** @Marketing
+**Due:** 2025-08-22
+**Prompt:** Homepage copy for City-1; 2 paid test campaigns with budgets & success thresholds.
+**Expected deliverable:** Copy + GTM brief.
+**Files/Areas:** docs/marketing/homepage_copy.md; docs/marketing/gtm_tests.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Marketing, Sprint:1, P2, Agent:Marketing",,
+@Content — 60-sec teaser script + blog outline (‘How to choose a Mehndi artist in <City>’),"**Agent:** @Content
+**Due:** 2025-08-22
+**Prompt:** 60-sec teaser script + blog outline (‘How to choose a Mehndi artist in <City>’).
+**Expected deliverable:** Script + outline.
+**Files/Areas:** content/teaser.md; content/blog_outline.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Content, Sprint:1, P2, Agent:Content",,
+@Mobile — Decision memo: PWA now vs Expo; week-1 plan; navigation map; API client spec,"**Agent:** @Mobile
+**Due:** 2025-08-23
+**Prompt:** Decision memo: PWA now vs Expo; week-1 plan; navigation map; API client spec.
+**Expected deliverable:** Decision + plan doc.
+**Files/Areas:** docs/mobile/decision_memo.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Mobile, Sprint:1, P2, Agent:Mobile",,
+@Developer — Add PWA manifest & icons; ensure Lighthouse PWA pass,"**Agent:** @Developer
+**Due:** 2025-08-23
+**Prompt:** Add PWA manifest & icons; ensure Lighthouse PWA pass.
+**Expected deliverable:** manifest + icons + head link.
+**Files/Areas:** public/manifest.webmanifest; public/icons/*; app/layout.tsx
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+"@QA — PWA test checklist (install, offline list cache)","**Agent:** @QA
+**Due:** 2025-08-23
+**Prompt:** PWA test checklist (install, offline list cache).
+**Expected deliverable:** Checklist doc.
+**Files/Areas:** docs/qa/pwa.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+"@SaaSEngineer — Draft 6 ADRs: auth, RBAC, payment hold/escrow, audit logging, analytics events, rate limiting","**Agent:** @SaaSEngineer
+**Due:** 2025-08-24
+**Prompt:** Draft 6 ADRs: auth, RBAC, payment hold/escrow, audit logging, analytics events, rate limiting.
+**Expected deliverable:** ADR docs.
+**Files/Areas:** docs/engineering/adr/*
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Platform, Sprint:1, P2, Agent:SaaSEngineer",,
+@Developer — Gate /admin with ENV flag (stub); unauthorized shows guidance,"**Agent:** @Developer
+**Due:** 2025-08-24
+**Prompt:** Gate /admin with ENV flag (stub); unauthorized shows guidance.
+**Expected deliverable:** Code change.
+**Files/Areas:** /admin; middleware (if used)
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@QA — Admin gate tests (flag on/off),"**Agent:** @QA
+**Due:** 2025-08-24
+**Prompt:** Admin gate tests (flag on/off).
+**Expected deliverable:** e2e spec.
+**Files/Areas:** tests/e2e/admin.spec.ts
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Developer — Calendar availability stub (disable unavailable dates),"**Agent:** @Developer
+**Due:** 2025-08-25
+**Prompt:** Calendar availability stub (disable unavailable dates).
+**Expected deliverable:** UI + mock data.
+**Files/Areas:** components/CalendarWidget.tsx; vendor page
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@Data — Add calendar interaction events,"**Agent:** @Data
+**Due:** 2025-08-25
+**Prompt:** Add calendar interaction events.
+**Expected deliverable:** Event doc update.
+**Files/Areas:** docs/data/events_v1.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Data, Sprint:1, P2, Agent:Data",,
+@QA — Calendar test cases (disable invalid dates),"**Agent:** @QA
+**Due:** 2025-08-25
+**Prompt:** Calendar test cases (disable invalid dates).
+**Expected deliverable:** Checklist/tests.
+**Files/Areas:** docs/qa/calendar.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@CRM — Trigger table + copy for notifications (Email/SMS/WhatsApp),"**Agent:** @CRM
+**Due:** 2025-08-26
+**Prompt:** Trigger table + copy for notifications (Email/SMS/WhatsApp).
+**Expected deliverable:** Trigger table + templates.
+**Files/Areas:** docs/crm/triggers.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:CRM, Sprint:1, P2, Agent:CRM",,
+@Developer — Placeholder cron/API to send reminders (no provider yet),"**Agent:** @Developer
+**Due:** 2025-08-26
+**Prompt:** Placeholder cron/API to send reminders (no provider yet).
+**Expected deliverable:** Route/cron stub.
+**Files/Areas:** app/api/cron/*
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@QA — Notification test plan (mock provider),"**Agent:** @QA
+**Due:** 2025-08-26
+**Prompt:** Notification test plan (mock provider).
+**Expected deliverable:** Checklist.
+**Files/Areas:** docs/qa/notifications.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+"@CEO — Sprint 1 demo script: shipped items, KPIs, top 3 next sprint","**Agent:** @CEO
+**Due:** 2025-08-27
+**Prompt:** Sprint 1 demo script: shipped items, KPIs, top 3 next sprint.
+**Expected deliverable:** Script outline.
+**Files/Areas:** docs/ceo/demo_script.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Mgmt, Sprint:1, P2, Agent:CEO",,
+@QA — Regression checklist for all P1 features; run and report,"**Agent:** @QA
+**Due:** 2025-08-27
+**Prompt:** Regression checklist for all P1 features; run and report.
+**Expected deliverable:** Report doc.
+**Files/Areas:** docs/qa/regression.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:QA, Sprint:1, P1, Agent:QA",,
+@Developer — Fix top 5 bugs from QA; update CHANGELOG,"**Agent:** @Developer
+**Due:** 2025-08-27
+**Prompt:** Fix top 5 bugs from QA; update CHANGELOG.
+**Expected deliverable:** Patches + changelog.
+**Files/Areas:** Code + CHANGELOG.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@Payments — Razorpay test-mode integration (happy path),"**Agent:** @Payments
+**Due:** 2025-08-28
+**Prompt:** Razorpay test-mode integration (happy path).
+**Expected deliverable:** Working create-order + webhook flow.
+**Files/Areas:** app/api/payments/*; client checkout
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Payments, Sprint:1, P1, Agent:Payments",,
+@Mobile — Scaffold Expo app with listings & detail screens,"**Agent:** @Mobile
+**Due:** 2025-08-29
+**Prompt:** Scaffold Expo app with listings & detail screens.
+**Expected deliverable:** Expo project folder.
+**Files/Areas:** mobile/*
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Mobile, Sprint:1, P2, Agent:Mobile",,
+@Developer — Vendor dashboard basics (listing CRUD),"**Agent:** @Developer
+**Due:** 2025-08-30
+**Prompt:** Vendor dashboard basics (listing CRUD).
+**Expected deliverable:** UI + API.
+**Files/Areas:** app/(vendor)/*; app/api/listings/*
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Dev, Sprint:1, P1, Agent:Developer",,
+@CEO — Weekly exec wrap + plan Sprint 2 (top 5 P1s),"**Agent:** @CEO
+**Due:** 2025-08-31
+**Prompt:** Weekly exec wrap + plan Sprint 2 (top 5 P1s).
+**Expected deliverable:** One-page plan.
+**Files/Areas:** docs/ceo/plan_sprint2.md
+
+**Definition of Done**
+- Meets acceptance criteria in description
+- Attach files/screenshots/snippets
+- Tests added/updated (if code)
+- Events documented (if applicable)
+- QA checklist updated
+","Area:Mgmt, Sprint:1, P2, Agent:CEO",,
