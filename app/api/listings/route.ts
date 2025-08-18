@@ -1,19 +1,19 @@
-
 import { NextResponse } from 'next/server'
-// import { prisma } from '@/lib/prisma'
+import { prisma } from '@/lib/prisma'
 
-// GET /api/listings - list/search listings (placeholder)
-export async function GET(request: Request) {
-  // TODO: parse search params & query prisma.listing
-  const data = [
-    { id: '1', title: 'Bridal Mehndi by Aisha', regions: ['Coimbatore'], serviceTypes: ['MEHNDI'], minAdvancePct: 40, basePrice: 5000, verifiedLevel: 1 },
-  ]
-  return NextResponse.json({ ok: true, items: data })
+// GET /api/listings — simple DB list (works on both SQLite JSON and Postgres arrays)
+export async function GET() {
+  const items = await prisma.listing.findMany({
+    include: { vendor: true },
+    orderBy: { createdAt: 'desc' },
+    take: 24,
+  })
+  return NextResponse.json({ ok: true, items })
 }
 
-// POST /api/listings - create new listing (placeholder)
-export async function POST(request: Request) {
-  const body = await request.json()
-  // TODO: validate & create via prisma.listing.create
-  return NextResponse.json({ ok: true, created: body })
+// POST /api/listings — (optional) create
+export async function POST(req: Request) {
+  const body = await req.json()
+  const created = await prisma.listing.create({ data: body })
+  return NextResponse.json({ ok: true, created })
 }

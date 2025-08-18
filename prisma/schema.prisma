@@ -1,10 +1,11 @@
+// prisma/schema.prisma  — PostgreSQL version (arrays + enums enabled)
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -52,17 +53,17 @@ model User {
 }
 
 model VendorProfile {
-  id            String    @id @default(cuid())
-  user          User      @relation(fields: [userId], references: [id])
-  userId        String    @unique
+  id            String        @id @default(cuid())
+  user          User          @relation(fields: [userId], references: [id])
+  userId        String        @unique
   bio           String?
-  services      ServiceType[]
-  expertiseTags String[]
-  regions       String[]
+  services      ServiceType[] // Postgres array (text[] mapped to enum[])
+  expertiseTags String[]      // Postgres text[]
+  regions       String[]      // Postgres text[]
   basePrice     Int?
-  verifiedLevel Int       @default(0)
-  ratingAvg     Float     @default(0)
-  ratingCount   Int       @default(0)
+  verifiedLevel Int           @default(0)
+  ratingAvg     Float         @default(0)
+  ratingCount   Int           @default(0)
   listings      Listing[]
 }
 
@@ -72,10 +73,10 @@ model Listing {
   vendorId       String
   title          String
   description    String
-  mediaUrls      String[]
-  regions        String[]
+  mediaUrls      String[]      // Postgres text[]
+  regions        String[]      // Postgres text[]
   minAdvancePct  Int           @default(30)
-  serviceTypes   ServiceType[]
+  serviceTypes   ServiceType[] // Postgres enum[]
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
   bookings       Booking[]
@@ -116,11 +117,16 @@ model Review {
   id          String   @id @default(cuid())
   booking     Booking  @relation(fields: [bookingId], references: [id])
   bookingId   String
+
   author      User     @relation(fields: [authorId], references: [id])
   authorId    String
+
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  listingId   String
+
   stars       Int
   text        String
-  photoUrls   String[]
+  photoUrls   String[] // Postgres text[]
   createdAt   DateTime @default(now())
 }
 
@@ -129,7 +135,7 @@ model Offer {
   listing     Listing  @relation(fields: [listingId], references: [id])
   listingId   String
   code        String
-  amountType  String   // "PERCENT" or "FLAT" (TODO: normalize with enum or separate fields)
+  amountType  String   // "PERCENT" or "FLAT"
   amount      Int
   validFrom   DateTime
   validTo     DateTime
