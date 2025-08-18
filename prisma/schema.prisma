@@ -1,0 +1,138 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  VENDOR
+  ADMIN
+}
+
+enum ServiceType {
+  MEHNDI
+  HAIR
+  MAKEUP
+  SAREE
+  BUNDLE
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  INITIATED
+  HOLD
+  PAID
+  REFUNDED
+  FAILED
+}
+
+model User {
+  id            String         @id @default(cuid())
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  name          String
+  email         String?        @unique
+  phone         String?        @unique
+  role          Role           @default(CUSTOMER)
+  city          String?
+  vendorProfile VendorProfile?
+  bookings      Booking[]
+  reviews       Review[]
+}
+
+model VendorProfile {
+  id            String    @id @default(cuid())
+  user          User      @relation(fields: [userId], references: [id])
+  userId        String    @unique
+  bio           String?
+  services      ServiceType[]
+  expertiseTags String[]
+  regions       String[]
+  basePrice     Int?
+  verifiedLevel Int       @default(0)
+  ratingAvg     Float     @default(0)
+  ratingCount   Int       @default(0)
+  listings      Listing[]
+}
+
+model Listing {
+  id             String        @id @default(cuid())
+  vendor         VendorProfile @relation(fields: [vendorId], references: [id])
+  vendorId       String
+  title          String
+  description    String
+  mediaUrls      String[]
+  regions        String[]
+  minAdvancePct  Int           @default(30)
+  serviceTypes   ServiceType[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  bookings       Booking[]
+  reviews        Review[]
+  offers         Offer[]
+}
+
+model Booking {
+  id            String        @id @default(cuid())
+  customer      User          @relation(fields: [customerId], references: [id])
+  customerId    String
+  listing       Listing       @relation(fields: [listingId], references: [id])
+  listingId     String
+  date          DateTime
+  status        BookingStatus @default(PENDING)
+  priceQuote    Int
+  advancePct    Int           @default(30)
+  advancePaid   Int           @default(0)
+  contractNote  String?
+  payments      Payment[]
+  reviews       Review[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  booking     Booking       @relation(fields: [bookingId], references: [id])
+  bookingId   String
+  amount      Int
+  status      PaymentStatus @default(INITIATED)
+  method      String?
+  txRef       String?
+  createdAt   DateTime      @default(now())
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  bookingId   String
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    String
+  stars       Int
+  text        String
+  photoUrls   String[]
+  createdAt   DateTime @default(now())
+}
+
+model Offer {
+  id          String   @id @default(cuid())
+  listing     Listing  @relation(fields: [listingId], references: [id])
+  listingId   String
+  code        String
+  amountType  String   // "PERCENT" or "FLAT" (TODO: normalize with enum or separate fields)
+  amount      Int
+  validFrom   DateTime
+  validTo     DateTime
+  cityFilter  String?
+  createdAt   DateTime @default(now())
+}
